@@ -120,81 +120,81 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
 
-  FILE DRIVER = f541d663-4a48-40aa-aabf-ff158ccae34c {
-    SECTION DXE_DEPEX = Dxe/SmemDxe/SmemDxe.depex
-    SECTION PE32 = Dxe/SmemDxe/SmemDxe.efi
-    SECTION UI = "SmemDxe"
-  }  
+  # FILE DRIVER = f541d663-4a48-40aa-aabf-ff158ccae34c {
+    # SECTION DXE_DEPEX = Dxe/SmemDxe/SmemDxe.depex
+    # SECTION PE32 = Dxe/SmemDxe/SmemDxe.efi
+    # SECTION UI = "SmemDxe"
+  # }  
 
-  FILE DRIVER = 8E9BD160-B184-11DF-94E2-0800200C9A66 {
-    SECTION DXE_DEPEX = Dxe/DALSys/DALSys.depex
-    SECTION PE32 = Dxe/DALSys/DALSys.efi
-    SECTION UI = "DALSys"
-  }
+  # FILE DRIVER = 8E9BD160-B184-11DF-94E2-0800200C9A66 {
+    # SECTION DXE_DEPEX = Dxe/DALSys/DALSys.depex
+    # SECTION PE32 = Dxe/DALSys/DALSys.efi
+    # SECTION UI = "DALSys"
+  # }
 
-  FILE DRIVER = 8681CC5A-0DF6-441E-B4B8-E915C538F067 {
-    SECTION DXE_DEPEX = Dxe/HWIODxeDriver/HWIODxeDriver.depex
-    SECTION PE32 = Dxe/HWIODxeDriver/HWIODxeDriver.efi
-    SECTION UI = "HWIODxeDriver"
-  }
+  # FILE DRIVER = 8681CC5A-0DF6-441E-B4B8-E915C538F067 {
+    # SECTION DXE_DEPEX = Dxe/HWIODxeDriver/HWIODxeDriver.depex
+    # SECTION PE32 = Dxe/HWIODxeDriver/HWIODxeDriver.efi
+    # SECTION UI = "HWIODxeDriver"
+  # }
 
-  FILE DRIVER = 10e193df-9966-44e7-b17c-59dd831e20fc {
-    SECTION DXE_DEPEX = Dxe/ChipInfo/ChipInfo.depex
-    SECTION PE32 = Dxe/ChipInfo/ChipInfo.efi
-    SECTION UI = "ChipInfo"
-  }
+  # FILE DRIVER = 10e193df-9966-44e7-b17c-59dd831e20fc {
+    # SECTION DXE_DEPEX = Dxe/ChipInfo/ChipInfo.depex
+    # SECTION PE32 = Dxe/ChipInfo/ChipInfo.efi
+    # SECTION UI = "ChipInfo"
+  # }
 
-  FILE DRIVER = B105211B-BBBD-4ADD-A3B0-D1CF4A52154C {
-    SECTION DXE_DEPEX = Dxe/PlatformInfoDxeDriver/PlatformInfoDxeDriver.depex
-    SECTION PE32 = Dxe/PlatformInfoDxeDriver/PlatformInfoDxeDriver.efi
-    SECTION UI = "PlatformInfoDxeDriver"
-  }
+  # FILE DRIVER = B105211B-BBBD-4ADD-A3B0-D1CF4A52154C {
+    # SECTION DXE_DEPEX = Dxe/PlatformInfoDxeDriver/PlatformInfoDxeDriver.depex
+    # SECTION PE32 = Dxe/PlatformInfoDxeDriver/PlatformInfoDxeDriver.efi
+    # SECTION UI = "PlatformInfoDxeDriver"
+  # }
 
-  FILE DRIVER = 9A00771F-36D4-4DD5-8916-C48ED9B16B86 {
-    SECTION DXE_DEPEX = Dxe/HALIOMMU/HALIOMMU.depex
-    SECTION PE32 = Dxe/HALIOMMU/HALIOMMU.efi
-    SECTION UI = "HALIOMMU"
-  }
+  # FILE DRIVER = 9A00771F-36D4-4DD5-8916-C48ED9B16B86 {
+    # SECTION DXE_DEPEX = Dxe/HALIOMMU/HALIOMMU.depex
+    # SECTION PE32 = Dxe/HALIOMMU/HALIOMMU.efi
+    # SECTION UI = "HALIOMMU"
+  # }
 
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF Dxe/ArmTimerDxe/ArmTimerDxe.inf
 
-  FILE DRIVER = E43128A8-8692-42B6-8AFA-676158578D18 {
-    SECTION DXE_DEPEX = Dxe/ULogDxe/ULogDxe.depex
-    SECTION PE32 = Dxe/ULogDxe/ULogDxe.efi
-    SECTION UI = "ULogDxe"
-  }
+  # FILE DRIVER = E43128A8-8692-42B6-8AFA-676158578D18 {
+    # SECTION DXE_DEPEX = Dxe/ULogDxe/ULogDxe.depex
+    # SECTION PE32 = Dxe/ULogDxe/ULogDxe.efi
+    # SECTION UI = "ULogDxe"
+  # }
 
-  FILE DRIVER = CB29F4D1-7F37-4692-A416-93E82E219711 {
-    SECTION DXE_DEPEX = Dxe/NpaDxe/NpaDxe.depex
-    SECTION PE32 = Dxe/NpaDxe/NpaDxe.efi
-    SECTION UI = "NpaDxe"
-  }
+  # FILE DRIVER = CB29F4D1-7F37-4692-A416-93E82E219711 {
+    # SECTION DXE_DEPEX = Dxe/NpaDxe/NpaDxe.depex
+    # SECTION PE32 = Dxe/NpaDxe/NpaDxe.efi
+    # SECTION UI = "NpaDxe"
+  # }
 
-  FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
-    SECTION DXE_DEPEX = Dxe/ClockDxe/ClockDxe.depex
-    SECTION PE32 = Dxe/ClockDxe/ClockDxe.efi
-    SECTION UI = "ClockDxe"
-  }
+  # FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
+    # SECTION DXE_DEPEX = Dxe/ClockDxe/ClockDxe.depex
+    # SECTION PE32 = Dxe/ClockDxe/ClockDxe.efi
+    # SECTION UI = "ClockDxe"
+  # }
 
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 
-  FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
-    SECTION DXE_DEPEX = Dxe/UFSDxe/UFSDxe.depex
-    SECTION PE32 = Dxe/UFSDxe/UFSDxe.efi
-    SECTION UI = "UFSDxe"
-  }
+  # FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
+    # SECTION DXE_DEPEX = Dxe/UFSDxe/UFSDxe.depex
+    # SECTION PE32 = Dxe/UFSDxe/UFSDxe.efi
+    # SECTION UI = "UFSDxe"
+  # }
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
-  FILE DRIVER = 2a7b4bef-80cd-49e1-b473-374ba4d673fc {
-    SECTION DXE_DEPEX = Dxe/SPMI/SPMI.depex
-    SECTION PE32 = Dxe/SPMI/SPMI.efi
-    SECTION UI = "SPMI"
-  }
+  # FILE DRIVER = 2a7b4bef-80cd-49e1-b473-374ba4d673fc {
+    # SECTION DXE_DEPEX = Dxe/SPMI/SPMI.depex
+    # SECTION PE32 = Dxe/SPMI/SPMI.efi
+    # SECTION UI = "SPMI"
+  # }
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
@@ -208,66 +208,66 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
 
-  FILE DRIVER = AF9763A2-033B-4109-8E17-56A98D380C92 {
-    SECTION DXE_DEPEX = Dxe/DALTLMM/DALTLMM.depex
-    SECTION PE32 = Dxe/DALTLMM/DALTLMM.efi
-    SECTION UI = "DALTLMM"
-  }
+  # FILE DRIVER = AF9763A2-033B-4109-8E17-56A98D380C92 {
+    # SECTION DXE_DEPEX = Dxe/DALTLMM/DALTLMM.depex
+    # SECTION PE32 = Dxe/DALTLMM/DALTLMM.efi
+    # SECTION UI = "DALTLMM"
+  # }
 
-  FILE DRIVER = 04DE8591-D2B3-4077-BBBE-B12070094EB6 {
-    SECTION DXE_DEPEX = Dxe/I2C/I2C.depex
-    SECTION PE32 = Dxe/I2C/I2C.efi
-    SECTION UI = "I2C"
-  }
+  # FILE DRIVER = 04DE8591-D2B3-4077-BBBE-B12070094EB6 {
+    # SECTION DXE_DEPEX = Dxe/I2C/I2C.depex
+    # SECTION PE32 = Dxe/I2C/I2C.efi
+    # SECTION UI = "I2C"
+  # }
 
-  FILE DRIVER = 5776232e-082d-4b75-9a0e-fe1d13f7a5d9 {
-    SECTION DXE_DEPEX = Dxe/PmicDxe/PmicDxe.depex
-    SECTION PE32 = Dxe/PmicDxe/PmicDxe.efi
-    SECTION UI = "PmicDxe"
-  }
+  # FILE DRIVER = 5776232e-082d-4b75-9a0e-fe1d13f7a5d9 {
+    # SECTION DXE_DEPEX = Dxe/PmicDxe/PmicDxe.depex
+    # SECTION PE32 = Dxe/PmicDxe/PmicDxe.efi
+    # SECTION UI = "PmicDxe"
+  # }
 
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
-  FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {
-    SECTION DXE_DEPEX = Dxe/ButtonsDxe/ButtonsDxe.depex
-    SECTION PE32 = Dxe/ButtonsDxe/ButtonsDxe.efi
-    SECTION UI = "ButtonsDxe"
-  }
+  # FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {
+    # SECTION DXE_DEPEX = Dxe/ButtonsDxe/ButtonsDxe.depex
+    # SECTION PE32 = Dxe/ButtonsDxe/ButtonsDxe.efi
+    # SECTION UI = "ButtonsDxe"
+  # }
 
-  FILE DRIVER = 11faed4c-b21f-4d88-8e48-c4c28a1e50df {
-    SECTION DXE_DEPEX = Dxe/UsbPwrCtrlDxe/UsbPwrCtrlDxe.depex
-    SECTION PE32 = Dxe/UsbPwrCtrlDxe/UsbPwrCtrlDxe.efi
-    SECTION UI = "UsbPwrCtrlDxe"
-  }
+  # FILE DRIVER = 11faed4c-b21f-4d88-8e48-c4c28a1e50df {
+    # SECTION DXE_DEPEX = Dxe/UsbPwrCtrlDxe/UsbPwrCtrlDxe.depex
+    # SECTION PE32 = Dxe/UsbPwrCtrlDxe/UsbPwrCtrlDxe.efi
+    # SECTION UI = "UsbPwrCtrlDxe"
+  # }
 
-  FILE DRIVER = 94f8a6a7-dc34-4101-88c1-99179cceae83 {
-    SECTION DXE_DEPEX = Dxe/UsbfnDwc3Dxe/UsbfnDwc3Dxe.depex
-    SECTION PE32 = Dxe/UsbfnDwc3Dxe/UsbfnDwc3Dxe.efi
-    SECTION UI = "UsbfnDwc3Dxe"
-  }
+  # FILE DRIVER = 94f8a6a7-dc34-4101-88c1-99179cceae83 {
+    # SECTION DXE_DEPEX = Dxe/UsbfnDwc3Dxe/UsbfnDwc3Dxe.depex
+    # SECTION PE32 = Dxe/UsbfnDwc3Dxe/UsbfnDwc3Dxe.efi
+    # SECTION UI = "UsbfnDwc3Dxe"
+  # }
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
-  FILE DRIVER = cd823a4d-7dec-4531-ae5d-4134fa4127b8 {
-    SECTION DXE_DEPEX = Dxe/UsbConfigDxe/UsbConfigDxe.depex
-    SECTION PE32 = Dxe/UsbConfigDxe/UsbConfigDxe.efi
-    SECTION UI = "UsbConfigDxe"
-  }
+  # FILE DRIVER = cd823a4d-7dec-4531-ae5d-4134fa4127b8 {
+    # SECTION DXE_DEPEX = Dxe/UsbConfigDxe/UsbConfigDxe.depex
+    # SECTION PE32 = Dxe/UsbConfigDxe/UsbConfigDxe.efi
+    # SECTION UI = "UsbConfigDxe"
+  # }
 
-  FILE DRIVER = 3299a266-15f0-4346-8318-716336736d3e {
-    SECTION DXE_DEPEX = Dxe/UsbDeviceDxe/UsbDeviceDxe.depex
-    SECTION PE32 = Dxe/UsbDeviceDxe/UsbDeviceDxe.efi
-    SECTION UI = "UsbDeviceDxe"
-  }
+  # FILE DRIVER = 3299a266-15f0-4346-8318-716336736d3e {
+    # SECTION DXE_DEPEX = Dxe/UsbDeviceDxe/UsbDeviceDxe.depex
+    # SECTION PE32 = Dxe/UsbDeviceDxe/UsbDeviceDxe.efi
+    # SECTION UI = "UsbDeviceDxe"
+  # }
 
-  FILE DRIVER = 7DB0793A-4402-4BE1-906E-D0FABAD2707E {
-    SECTION PE32 = Dxe/DDRInfoDxe/DDRInfoDxe.efi
-    SECTION UI = "DDRInfoDxe"
-  }
+  # FILE DRIVER = 7DB0793A-4402-4BE1-906E-D0FABAD2707E {
+    # SECTION PE32 = Dxe/DDRInfoDxe/DDRInfoDxe.efi
+    # SECTION UI = "DDRInfoDxe"
+  # }
 
   INF ginkgoPkg/ginkgoDxe/ginkgoDxe.inf
 
@@ -301,137 +301,125 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf 
 
-  FILE DRIVER = f541d663-4a48-40aa-aabf-ff158ccae34c {
-    SECTION DXE_DEPEX = Dxe/SmemDxe/SmemDxe.depex
-    SECTION PE32 = Dxe/SmemDxe/SmemDxe.efi
-    SECTION UI = "SmemDxe"
-  }  
+  # FILE DRIVER = f541d663-4a48-40aa-aabf-ff158ccae34c {
+    # SECTION DXE_DEPEX = Dxe/SmemDxe/SmemDxe.depex
+    # SECTION PE32 = Dxe/SmemDxe/SmemDxe.efi
+    # SECTION UI = "SmemDxe"
+  # }  
 
-  FILE DRIVER = 8E9BD160-B184-11DF-94E2-0800200C9A66 {
-    SECTION DXE_DEPEX = Dxe/DALSys/DALSys.depex
-    SECTION PE32 = Dxe/DALSys/DALSys.efi
-    SECTION UI = "DALSys"
-  }
+  # FILE DRIVER = 8E9BD160-B184-11DF-94E2-0800200C9A66 {
+    # SECTION DXE_DEPEX = Dxe/DALSys/DALSys.depex
+    # SECTION PE32 = Dxe/DALSys/DALSys.efi
+    # SECTION UI = "DALSys"
+  # }
 
-  FILE DRIVER = 8681CC5A-0DF6-441E-B4B8-E915C538F067 {
-    SECTION DXE_DEPEX = Dxe/HWIODxeDriver/HWIODxeDriver.depex
-    SECTION PE32 = Dxe/HWIODxeDriver/HWIODxeDriver.efi
-    SECTION UI = "HWIODxeDriver"
-  }
+  # FILE DRIVER = 8681CC5A-0DF6-441E-B4B8-E915C538F067 {
+    # SECTION DXE_DEPEX = Dxe/HWIODxeDriver/HWIODxeDriver.depex
+    # SECTION PE32 = Dxe/HWIODxeDriver/HWIODxeDriver.efi
+    # SECTION UI = "HWIODxeDriver"
+  # }
 
-  FILE DRIVER = 10e193df-9966-44e7-b17c-59dd831e20fc {
-    SECTION DXE_DEPEX = Dxe/ChipInfo/ChipInfo.depex
-    SECTION PE32 = Dxe/ChipInfo/ChipInfo.efi
-    SECTION UI = "ChipInfo"
-  }
+  # FILE DRIVER = 10e193df-9966-44e7-b17c-59dd831e20fc {
+    # SECTION DXE_DEPEX = Dxe/ChipInfo/ChipInfo.depex
+    # SECTION PE32 = Dxe/ChipInfo/ChipInfo.efi
+    # SECTION UI = "ChipInfo"
+  # }
 
-  FILE DRIVER = B105211B-BBBD-4ADD-A3B0-D1CF4A52154C {
-    SECTION DXE_DEPEX = Dxe/PlatformInfoDxeDriver/PlatformInfoDxeDriver.depex
-    SECTION PE32 = Dxe/PlatformInfoDxeDriver/PlatformInfoDxeDriver.efi
-    SECTION UI = "PlatformInfoDxeDriver"
-  }
+  # FILE DRIVER = B105211B-BBBD-4ADD-A3B0-D1CF4A52154C {
+    # SECTION DXE_DEPEX = Dxe/PlatformInfoDxeDriver/PlatformInfoDxeDriver.depex
+    # SECTION PE32 = Dxe/PlatformInfoDxeDriver/PlatformInfoDxeDriver.efi
+    # SECTION UI = "PlatformInfoDxeDriver"
+  # }
 
-  FILE DRIVER = 9A00771F-36D4-4DD5-8916-C48ED9B16B86 {
-    SECTION DXE_DEPEX = Dxe/HALIOMMU/HALIOMMU.depex
-    SECTION PE32 = Dxe/HALIOMMU/HALIOMMU.efi
-    SECTION UI = "HALIOMMU"
-  }
+  # FILE DRIVER = 9A00771F-36D4-4DD5-8916-C48ED9B16B86 {
+    # SECTION DXE_DEPEX = Dxe/HALIOMMU/HALIOMMU.depex
+    # SECTION PE32 = Dxe/HALIOMMU/HALIOMMU.efi
+    # SECTION UI = "HALIOMMU"
+  # }
 
-  FILE DRIVER = E43128A8-8692-42B6-8AFA-676158578D18 {
-    SECTION DXE_DEPEX = Dxe/ULogDxe/ULogDxe.depex
-    SECTION PE32 = Dxe/ULogDxe/ULogDxe.efi
-    SECTION UI = "ULogDxe"
-  }
+  # FILE DRIVER = E43128A8-8692-42B6-8AFA-676158578D18 {
+    # SECTION DXE_DEPEX = Dxe/ULogDxe/ULogDxe.depex
+    # SECTION PE32 = Dxe/ULogDxe/ULogDxe.efi
+    # SECTION UI = "ULogDxe"
+  # }
 
-  FILE DRIVER = CB29F4D1-7F37-4692-A416-93E82E219711 {
-    SECTION DXE_DEPEX = Dxe/NpaDxe/NpaDxe.depex
-    SECTION PE32 = Dxe/NpaDxe/NpaDxe.efi
-    SECTION UI = "NpaDxe"
-  }
+  # FILE DRIVER = CB29F4D1-7F37-4692-A416-93E82E219711 {
+    # SECTION DXE_DEPEX = Dxe/NpaDxe/NpaDxe.depex
+    # SECTION PE32 = Dxe/NpaDxe/NpaDxe.efi
+    # SECTION UI = "NpaDxe"
+  # }
 
-  FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
-    SECTION DXE_DEPEX = Dxe/ClockDxe/ClockDxe.depex
-    SECTION PE32 = Dxe/ClockDxe/ClockDxe.efi
-    SECTION UI = "ClockDxe"
-  }
+  # FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
+    # SECTION DXE_DEPEX = Dxe/ClockDxe/ClockDxe.depex
+    # SECTION PE32 = Dxe/ClockDxe/ClockDxe.efi
+    # SECTION UI = "ClockDxe"
+  # }
 
-  FILE DRIVER = AF9763A2-033B-4109-8E17-56A98D380C92 {
-    SECTION DXE_DEPEX = Dxe/DALTLMM/DALTLMM.depex
-    SECTION PE32 = Dxe/DALTLMM/DALTLMM.efi
-    SECTION UI = "DALTLMM"
-  }
+  # FILE DRIVER = AF9763A2-033B-4109-8E17-56A98D380C92 {
+    # SECTION DXE_DEPEX = Dxe/DALTLMM/DALTLMM.depex
+    # SECTION PE32 = Dxe/DALTLMM/DALTLMM.efi
+    # SECTION UI = "DALTLMM"
+  # }
 
-  FILE DRIVER = 04DE8591-D2B3-4077-BBBE-B12070094EB6 {
-    SECTION DXE_DEPEX = Dxe/I2C/I2C.depex
-    SECTION PE32 = Dxe/I2C/I2C.efi
-    SECTION UI = "I2C"
-  }
+  # FILE DRIVER = 04DE8591-D2B3-4077-BBBE-B12070094EB6 {
+    # SECTION DXE_DEPEX = Dxe/I2C/I2C.depex
+    # SECTION PE32 = Dxe/I2C/I2C.efi
+    # SECTION UI = "I2C"
+  # }
 
-  FILE DRIVER = 2a7b4bef-80cd-49e1-b473-374ba4d673fc {
-    SECTION DXE_DEPEX = Dxe/SPMI/SPMI.depex
-    SECTION PE32 = Dxe/SPMI/SPMI.efi
-    SECTION UI = "SPMI"
-  }
+  # FILE DRIVER = 2a7b4bef-80cd-49e1-b473-374ba4d673fc {
+    # SECTION DXE_DEPEX = Dxe/SPMI/SPMI.depex
+    # SECTION PE32 = Dxe/SPMI/SPMI.efi
+    # SECTION UI = "SPMI"
+  # }
 
-  FILE DRIVER = 5776232e-082d-4b75-9a0e-fe1d13f7a5d9 {
-    SECTION DXE_DEPEX = Dxe/PmicDxe/PmicDxe.depex
-    SECTION PE32 = Dxe/PmicDxe/PmicDxe.efi
-    SECTION UI = "PmicDxe"
-  }
+  # FILE DRIVER = 5776232e-082d-4b75-9a0e-fe1d13f7a5d9 {
+    # SECTION DXE_DEPEX = Dxe/PmicDxe/PmicDxe.depex
+    # SECTION PE32 = Dxe/PmicDxe/PmicDxe.efi
+    # SECTION UI = "PmicDxe"
+  # }
 
-  FILE DRIVER = 11faed4c-b21f-4d88-8e48-c4c28a1e50df {
-    SECTION DXE_DEPEX = Dxe/UsbPwrCtrlDxe/UsbPwrCtrlDxe.depex
-    SECTION PE32 = Dxe/UsbPwrCtrlDxe/UsbPwrCtrlDxe.efi
-    SECTION UI = "UsbPwrCtrlDxe"
-  }
+  # FILE DRIVER = 11faed4c-b21f-4d88-8e48-c4c28a1e50df {
+    # SECTION DXE_DEPEX = Dxe/UsbPwrCtrlDxe/UsbPwrCtrlDxe.depex
+    # SECTION PE32 = Dxe/UsbPwrCtrlDxe/UsbPwrCtrlDxe.efi
+    # SECTION UI = "UsbPwrCtrlDxe"
+  # }
 
-  FILE DRIVER = 94f8a6a7-dc34-4101-88c1-99179cceae83 {
-    SECTION DXE_DEPEX = Dxe/UsbfnDwc3Dxe/UsbfnDwc3Dxe.depex
-    SECTION PE32 = Dxe/UsbfnDwc3Dxe/UsbfnDwc3Dxe.efi
-    SECTION UI = "UsbfnDwc3Dxe"
-  }
+  # FILE DRIVER = 94f8a6a7-dc34-4101-88c1-99179cceae83 {
+    # SECTION DXE_DEPEX = Dxe/UsbfnDwc3Dxe/UsbfnDwc3Dxe.depex
+    # SECTION PE32 = Dxe/UsbfnDwc3Dxe/UsbfnDwc3Dxe.efi
+    # SECTION UI = "UsbfnDwc3Dxe"
+  # }
 
-  FILE DRIVER = cd823a4d-7dec-4531-ae5d-4134fa4127b8 {
-    SECTION DXE_DEPEX = Dxe/UsbConfigDxe/UsbConfigDxe.depex
-    SECTION PE32 = Dxe/UsbConfigDxe/UsbConfigDxe.efi
-    SECTION UI = "UsbConfigDxe"
-  }
+  # FILE DRIVER = cd823a4d-7dec-4531-ae5d-4134fa4127b8 {
+    # SECTION DXE_DEPEX = Dxe/UsbConfigDxe/UsbConfigDxe.depex
+    # SECTION PE32 = Dxe/UsbConfigDxe/UsbConfigDxe.efi
+    # SECTION UI = "UsbConfigDxe"
+  # }
 
-  FILE DRIVER = 3299a266-15f0-4346-8318-716336736d3e {
-    SECTION DXE_DEPEX = Dxe/UsbDeviceDxe/UsbDeviceDxe.depex
-    SECTION PE32 = Dxe/UsbDeviceDxe/UsbDeviceDxe.efi
-    SECTION UI = "UsbDeviceDxe"
-  }
+  # FILE DRIVER = 3299a266-15f0-4346-8318-716336736d3e {
+    # SECTION DXE_DEPEX = Dxe/UsbDeviceDxe/UsbDeviceDxe.depex
+    # SECTION PE32 = Dxe/UsbDeviceDxe/UsbDeviceDxe.efi
+    # SECTION UI = "UsbDeviceDxe"
+  # }
 
-  FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {
-    SECTION DXE_DEPEX = Dxe/ButtonsDxe/ButtonsDxe.depex
-    SECTION PE32 = Dxe/ButtonsDxe/ButtonsDxe.efi
-    SECTION UI = "ButtonsDxe"
-  }
+  # FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {
+    # SECTION DXE_DEPEX = Dxe/ButtonsDxe/ButtonsDxe.depex
+    # SECTION PE32 = Dxe/ButtonsDxe/ButtonsDxe.efi
+    # SECTION UI = "ButtonsDxe"
+  # }
 
-  FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
-    SECTION DXE_DEPEX = Dxe/UFSDxe/UFSDxe.depex
-    SECTION PE32 = Dxe/UFSDxe/UFSDxe.efi
-    SECTION UI = "UFSDxe"
-  }
-  
-  FILE DRIVER = F0D87C5E-4D5D-4FB5-939F-A6768AE8A309 {
-    SECTION DXE_DEPEX = Dxe/Synaptics/SynapticsTouchDxe.depex
-    SECTION PE32 = Dxe/Synaptics/SynapticsTouchDxe.efi
-    SECTION UI = "SynapticsTouchDxe"
-  }
+  # FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
+    # SECTION DXE_DEPEX = Dxe/UFSDxe/UFSDxe.depex
+    # SECTION PE32 = Dxe/UFSDxe/UFSDxe.efi
+    # SECTION UI = "UFSDxe"
+  # }
 
-  FILE DRIVER = F0D87C5E-4D5D-4FB5-939F-A6768AE8A310 {
-    SECTION DXE_DEPEX = Dxe/Synaptics/SynapticsTouchDeviceDxe.depex
-    SECTION PE32 = Dxe/Synaptics/SynapticsTouchDeviceDxe.efi
-    SECTION UI = "SynapticsTouchDeviceDxe"
-  }
-
-  FILE DRIVER = 5AF77F10-90DF-4E7E-8325-A17EC09D5443 {
-    SECTION DXE_DEPEX = Dxe/UsbMsdDxe/UsbMsdDxe.depex
-    SECTION PE32 = Dxe/UsbMsdDxe/UsbMsdDxe.efi
-    SECTION UI = "UsbMsdDxe"
-  }
+  # FILE DRIVER = 5AF77F10-90DF-4E7E-8325-A17EC09D5443 {
+    # SECTION DXE_DEPEX = Dxe/UsbMsdDxe/UsbMsdDxe.depex
+    # SECTION PE32 = Dxe/UsbMsdDxe/UsbMsdDxe.efi
+    # SECTION UI = "UsbMsdDxe"
+  # }
 
   INF ginkgoPkg/ginkgoDxe/ginkgoDxe.inf
   INF ginkgoPkg/SimpleFbDxe/SimpleFbDxe.inf
