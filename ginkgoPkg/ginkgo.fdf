@@ -115,7 +115,7 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF Dxe/ArmGicDxe/ArmGicDxe.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -157,7 +157,7 @@ APRIORI DXE {
   }
 
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
-  INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
+  INF Dxe/ArmTimerDxe/ArmTimerDxe.inf
 
   FILE DRIVER = E43128A8-8692-42B6-8AFA-676158578D18 {
     SECTION DXE_DEPEX = Dxe/ULogDxe/ULogDxe.depex
@@ -296,8 +296,8 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
-  INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
+  INF Dxe/ArmGicDxe/ArmGicDxe.inf
+  INF Dxe/ArmTimerDxe/ArmTimerDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf 
 
