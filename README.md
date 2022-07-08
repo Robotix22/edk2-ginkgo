@@ -28,7 +28,7 @@ Now Install needed Packages
 For Debian and Ubuntu:
 
 ```bash
-sudo apt install build-essential uuid-dev iasl git nasm gcc-aarch64-linux-gnu abootimg python3-distutils gettext
+sudo apt install build-essential uuid-dev iasl git nasm gcc-aarch64-linux-gnu mkbootimg python3-distutils gettext
 ```
 
 Now you can build the UEFI Image by doing
