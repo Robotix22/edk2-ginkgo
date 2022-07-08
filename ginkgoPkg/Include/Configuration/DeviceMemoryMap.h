@@ -263,8 +263,6 @@ static ARM_MEMORY_REGION_DESCRIPTOR_EX gDeviceMemoryDescriptorEx[] = {
      AddDev, EfiMemoryMappedIO},
 
     /* Terminator for MMU*/
-    {0},
-
-};
+    {}};
 
 #endif
