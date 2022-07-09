@@ -8,4 +8,4 @@ rm -rf Build/ginkgo/DEBUG_GCC5/FV/Ffs/7E374E25-8E01-4FEE-87F2-390C23C606CDFVMAIN
 GCC5_AARCH64_PREFIX=aarch64-linux-gnu- build -s -n 0 -a AARCH64 -t GCC5 -p ginkgoPkg/ginkgo.dsc -b DEBUG
 gzip -c < Build/ginkgo/DEBUG_GCC5/FV/GINKGOPKG_UEFI.fd >uefi_image
 cat ginkgo.dtb >>uefi_image
-abootimg --create boot-ginkgo.img -k uefi_image -r ramdisk
+mkbootimg --header_version 1 --pagesize 4096 --id --os_version 12.0 --os_patch_level 2022-01-01 --kernel uefi_image --ramdisk ramdisk -o boot-ginkgo.img
