@@ -2,11 +2,11 @@
 
 ## Status
 
-Still in Work
+Stuck Loading SimpleFbDxe
 
 ## Working
 
-...
+Display
 
 ## Not Working
 
