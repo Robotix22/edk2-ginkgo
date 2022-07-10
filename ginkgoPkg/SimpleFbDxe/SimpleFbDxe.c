@@ -10,7 +10,6 @@
 #include <Library/DxeServicesTableLib.h>
 #include <Protocol/GraphicsOutput.h>
 #include <Library/BaseLib.h>
-#include <Library/FrameBufferBltLib.h>
 #include <Library/CacheMaintenanceLib.h>
 
 /// Defines
@@ -21,8 +20,20 @@
 #define VNBYTES(bpix)	(1 << (bpix)) / 8
 #define VNBITS(bpix)	(1 << (bpix))
 
+#define POS_TO_FB(posX, posY) ((UINT8 *)                                \
+                               ((UINTN)This->Mode->FrameBufferBase +    \
+                                (posY) * This->Mode->Info->PixelsPerScanLine * \
+                                FB_BYTES_PER_PIXEL +                   \
+                                (posX) * FB_BYTES_PER_PIXEL))
+
 #define FB_BITS_PER_PIXEL                   (32)
 #define FB_BYTES_PER_PIXEL                  (FB_BITS_PER_PIXEL / 8)
+#define DISPLAYDXE_PHYSICALADDRESS32(_x_)   (UINTN)((_x_) & 0xFFFFFFFF)
+
+#define DISPLAYDXE_RED_MASK                0xFF0000
+#define DISPLAYDXE_GREEN_MASK              0x00FF00
+#define DISPLAYDXE_BLUE_MASK               0x0000FF
+#define DISPLAYDXE_ALPHA_MASK              0x000000
 
 /*
  * Bits per pixel selector. Each value n is such that the bits-per-pixel is
@@ -66,9 +77,6 @@ DISPLAY_DEVICE_PATH mDisplayDevicePath =
 };
 
 /// Declares
-
-STATIC FRAME_BUFFER_CONFIGURE        *mFrameBufferBltLibConfigure;
-STATIC UINTN                         mFrameBufferBltLibConfigureSize;
 
 STATIC
 EFI_STATUS
@@ -158,45 +166,84 @@ DisplaySetMode
 STATIC
 EFI_STATUS
 EFIAPI
-DisplayBlt
-(
-    IN  EFI_GRAPHICS_OUTPUT_PROTOCOL      *This,
-    IN  EFI_GRAPHICS_OUTPUT_BLT_PIXEL     *BltBuffer,   OPTIONAL
-    IN  EFI_GRAPHICS_OUTPUT_BLT_OPERATION BltOperation,
-    IN  UINTN                             SourceX,
-    IN  UINTN                             SourceY,
-    IN  UINTN                             DestinationX,
-    IN  UINTN                             DestinationY,
-    IN  UINTN                             Width,
-    IN  UINTN                             Height,
-    IN  UINTN                             Delta         OPTIONAL
+DisplayBlt(
+	IN  EFI_GRAPHICS_OUTPUT_PROTOCOL      *This,
+	IN  EFI_GRAPHICS_OUTPUT_BLT_PIXEL     *BltBuffer, OPTIONAL
+	IN  EFI_GRAPHICS_OUTPUT_BLT_OPERATION BltOperation,
+	IN  UINTN                             SourceX,
+	IN  UINTN                             SourceY,
+	IN  UINTN                             DestinationX,
+	IN  UINTN                             DestinationY,
+	IN  UINTN                             Width,
+	IN  UINTN                             Height,
+	IN  UINTN                             Delta         OPTIONAL
 )
 {
+	UINT8 *VidBuf, *BltBuf, *VidBuf1;
+	UINTN i;
 
-  RETURN_STATUS                         Status;
-  EFI_TPL                               Tpl;
-  //
-  // We have to raise to TPL_NOTIFY, so we make an atomic write to the frame buffer.
-  // We would not want a timer based event (Cursor, ...) to come in while we are
-  // doing this operation.
-  //
-  Tpl = gBS->RaiseTPL (TPL_NOTIFY);
-  Status = FrameBufferBlt (
-             mFrameBufferBltLibConfigure,
-             BltBuffer,
-             BltOperation,
-             SourceX, SourceY,
-             DestinationX, DestinationY, Width, Height,
-             Delta
-             );
-  gBS->RestoreTPL (Tpl);
+	switch (BltOperation) {
+	case EfiBltVideoFill:
+		BltBuf = (UINT8 *) mDisplay.Mode->FrameBufferBase;
 
-  // zhuowei: hack: flush the cache manually since my memory maps are still broken
-  WriteBackInvalidateDataCacheRange((void*)mDisplay.Mode->FrameBufferBase, 
-    mDisplay.Mode->FrameBufferSize);
-  // zhuowei: end hack
+		for (i = 0; i < Height; i++) 
+		{
+			VidBuf = POS_TO_FB(DestinationX, DestinationY + i);
+			
+			SetMem32(VidBuf, Width * FB_BYTES_PER_PIXEL, *(UINT32 *) BltBuf);
+		}
+		break;
 
-  return RETURN_ERROR (Status) ? EFI_INVALID_PARAMETER : EFI_SUCCESS;
+	case EfiBltVideoToBltBuffer:
+		if (Delta == 0) 
+		{
+			Delta = Width * FB_BYTES_PER_PIXEL;
+		}
+
+		// A R G B
+		// A B G R
+		for (i = 0; i < Height; i++) 
+		{
+			VidBuf = POS_TO_FB(SourceX, SourceY + i);
+
+			BltBuf = (UINT8 *)((UINTN)BltBuffer + (DestinationY + i) * Delta +
+				DestinationX * FB_BYTES_PER_PIXEL);
+
+			gBS->CopyMem((VOID *)BltBuf, (VOID *)VidBuf, FB_BYTES_PER_PIXEL * Width);
+		}
+		break;
+
+	case EfiBltBufferToVideo:
+		if (Delta == 0) 
+		{
+			Delta = Width * FB_BYTES_PER_PIXEL;
+		}
+
+		for (i = 0; i < Height; i++) 
+		{
+			VidBuf = POS_TO_FB(DestinationX, DestinationY + i);
+			BltBuf = (UINT8 *)((UINTN)BltBuffer + (SourceY + i) * Delta + SourceX * FB_BYTES_PER_PIXEL);
+
+			gBS->CopyMem((VOID *)VidBuf, (VOID *)BltBuf, Width * FB_BYTES_PER_PIXEL);
+		}
+		break;
+
+	case EfiBltVideoToVideo:
+		for (i = 0; i < Height; i++) 
+		{
+			VidBuf = POS_TO_FB(SourceX, SourceY + i);
+			VidBuf1 = POS_TO_FB(DestinationX, DestinationY + i);
+
+			gBS->CopyMem((VOID *)VidBuf1, (VOID *)VidBuf, Width * FB_BYTES_PER_PIXEL);
+		}
+		break;
+
+	default:
+		ASSERT_EFI_ERROR(EFI_SUCCESS);
+		break;
+	}
+
+	return EFI_SUCCESS;
 }
 
 EFI_STATUS
@@ -213,12 +260,12 @@ SimpleFbDxeInitialize
 
     /* Retrieve simple frame buffer from pre-SEC bootloader */
     DEBUG((EFI_D_ERROR, "SimpleFbDxe: Retrieve MIPI FrameBuffer parameters from PCD\n"));
-    UINT32              MipiFrameBufferAddr     = FixedPcdGet32(PcdMipiFrameBufferAddress);
-    UINT32              MipiFrameBufferWidth    = FixedPcdGet32(PcdMipiFrameBufferWidth);
-    UINT32              MipiFrameBufferHeight   = FixedPcdGet32(PcdMipiFrameBufferHeight);
+    UINT32              SimpleFbFrameBufferAddr     = FixedPcdGet32(PcdSimpleFbFrameBufferAddress);
+    UINT32              SimpleFbFrameBufferWidth    = FixedPcdGet32(PcdSimpleFbFrameBufferWidth);
+    UINT32              SimpleFbFrameBufferHeight   = FixedPcdGet32(PcdSimpleFbFrameBufferHeight);
 
     /* Sanity check */
-    if (MipiFrameBufferAddr == 0 || MipiFrameBufferWidth == 0 || MipiFrameBufferHeight == 0)
+    if (SimpleFbFrameBufferAddr == 0 || SimpleFbFrameBufferWidth == 0 || SimpleFbFrameBufferHeight == 0)
     {
         DEBUG((EFI_D_ERROR, "SimpleFbDxe: Invalid FrameBuffer parameters\n"));
         return EFI_DEVICE_ERROR;
@@ -258,49 +305,20 @@ SimpleFbDxeInitialize
     mDisplay.Mode->Mode = 0;
     mDisplay.Mode->Info->Version = 0;
 
-    mDisplay.Mode->Info->HorizontalResolution = MipiFrameBufferWidth;
-    mDisplay.Mode->Info->VerticalResolution = MipiFrameBufferHeight;
+    mDisplay.Mode->Info->HorizontalResolution = SimpleFbFrameBufferWidth;
+    mDisplay.Mode->Info->VerticalResolution = SimpleFbFrameBufferHeight;
 
-    /* SimpleFB runs on a8r8g8b8 (VIDEO_BPP32) for DB410c */
-    UINT32 LineLength = MipiFrameBufferWidth * VNBYTES(VIDEO_BPP32);
-    UINT32 FrameBufferSize = LineLength * MipiFrameBufferHeight;
-    EFI_PHYSICAL_ADDRESS FrameBufferAddress = MipiFrameBufferAddr;
+    /* SimpleFB runs on a8r8g8b8 (VIDEO_BPP32) for this device */
+    UINT32 LineLength = SimpleFbFrameBufferWidth * VNBYTES(VIDEO_BPP32);
+    UINT32 FrameBufferSize = LineLength * SimpleFbFrameBufferHeight;
+    EFI_PHYSICAL_ADDRESS FrameBufferAddress = SimpleFbFrameBufferAddr;
 
-    mDisplay.Mode->Info->PixelsPerScanLine = MipiFrameBufferWidth;
+    mDisplay.Mode->Info->PixelsPerScanLine = SimpleFbFrameBufferWidth;
     mDisplay.Mode->Info->PixelFormat = PixelBlueGreenRedReserved8BitPerColor;
     mDisplay.Mode->SizeOfInfo = sizeof(EFI_GRAPHICS_OUTPUT_MODE_INFORMATION);
     mDisplay.Mode->FrameBufferBase = FrameBufferAddress;
     mDisplay.Mode->FrameBufferSize = FrameBufferSize;
 
-    //
-    // Create the FrameBufferBltLib configuration.
-    //
-    Status = FrameBufferBltConfigure (
-                     (VOID *) (UINTN) mDisplay.Mode->FrameBufferBase,
-                     mDisplay.Mode->Info,
-                     mFrameBufferBltLibConfigure,
-                     &mFrameBufferBltLibConfigureSize
-                     );
-    if (Status == RETURN_BUFFER_TOO_SMALL) {
-      mFrameBufferBltLibConfigure = AllocatePool (mFrameBufferBltLibConfigureSize);
-      if (mFrameBufferBltLibConfigure != NULL) {
-        Status = FrameBufferBltConfigure (
-                         (VOID *) (UINTN) mDisplay.Mode->FrameBufferBase,
-                         mDisplay.Mode->Info,
-                         mFrameBufferBltLibConfigure,
-                         &mFrameBufferBltLibConfigureSize
-                         );
-      }
-    }
-    ASSERT_EFI_ERROR (Status);
-
-    // zhuowei: clear the screen to black
-    // UEFI standard requires this, since text is white - see OvmfPkg/QemuVideoDxe/Gop.c
-    ZeroMem((void*)FrameBufferAddress, FrameBufferSize);
-    // hack: clear cache
-    WriteBackInvalidateDataCacheRange((void*)FrameBufferAddress, FrameBufferSize);
-    // zhuowei: end
- 
     /* Register handle */
     Status = gBS->InstallMultipleProtocolInterfaces(
         &hUEFIDisplayHandle,
@@ -315,3 +333,4 @@ SimpleFbDxeInitialize
     return Status;
 
 }
+
