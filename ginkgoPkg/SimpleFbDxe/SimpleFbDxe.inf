@@ -26,18 +26,22 @@
   UefiDriverEntryPoint
   BaseMemoryLib
   DebugLib
-  PcdLib
-  FrameBufferBltLib
+  CompilerIntrinsicsLib
   CacheMaintenanceLib
+  PcdLib
 
 [Protocols]
   gEfiGraphicsOutputProtocolGuid ## PRODUCES
   gEfiCpuArchProtocolGuid
 
+[Pcd]
+  gginkgoTokenSpaceGuid.PcdSimpleFbFrameBufferVisibleWidth
+  gginkgoTokenSpaceGuid.PcdSimpleFbFrameBufferVisibleHeight
+
 [FixedPcd]
-  gginkgoTokenSpaceGuid.PcdMipiFrameBufferAddress
-  gginkgoTokenSpaceGuid.PcdMipiFrameBufferWidth
-  gginkgoTokenSpaceGuid.PcdMipiFrameBufferHeight
+  gginkgoTokenSpaceGuid.PcdSimpleFbFrameBufferAddress
+  gginkgoTokenSpaceGuid.PcdSimpleFbFrameBufferWidth
+  gginkgoTokenSpaceGuid.PcdSimpleFbFrameBufferHeight
 
 [Guids]
   gEfiMdeModulePkgTokenSpaceGuid
@@ -48,3 +52,4 @@
 
 [Depex]
   gEfiCpuArchProtocolGuid
+
