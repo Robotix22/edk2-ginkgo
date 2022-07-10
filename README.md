@@ -52,3 +52,5 @@ fastboot flash recovery boot-ginkgo.img
 This is based on `edk2-sdm845` from `edk2-porting`
 
 Thanks to `vicenteicc2008` for Testing and fixes
+
+SimpleFbDxe is based on `NintendoSwitchPkg` from `imbushuo`
