@@ -2,7 +2,7 @@
 
 ## Status
 
-Stuck Loading SimpleFbDxe
+Can Boot into UEFI Shell
 
 ## Working
 
