@@ -8,6 +8,8 @@ Can Boot into UEFI Shell
 
 Display
 
+Clocks
+
 ## Not Working
 
 ...
