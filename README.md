@@ -1,4 +1,4 @@
-# EDK2 UEFI Firmware For Redmi Note 8
+# EDK2 UEFI Firmware For Xiaomi Redmi Note 8
 
 ## Resources
 
@@ -16,7 +16,7 @@ Clocks
 
 ## Not Working
 
-...
+USB
 
 ## Building
 
