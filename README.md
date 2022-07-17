@@ -1,5 +1,9 @@
 # EDK2 UEFI Firmware For Redmi Note 8
 
+## Resources
+
+[Discord Server](https://discord.gg/Gb4KAqAQdm)
+
 ## Status
 
 Can Boot into UEFI Shell
